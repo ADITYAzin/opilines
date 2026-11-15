@@ -209,7 +209,7 @@ export default function TermsAndConditionsPage() {
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-4 w-4 text-[#10B981] shrink-0 mt-0.5" />
                   <span>
-                    <strong>Prosedur & Durasi Refund:</strong> Permohonan dikirimkan ke email resmi <strong>billing@opilines.id</strong> dengan melampirkan Nomor Order (contoh: <code>OPL-PRO-...</code>) dan bukti bayar. Dana akan dikembalikan ke metode pembayaran awal atau rekening resmi perusahaan pemesan dalam waktu <strong>5–14 hari kerja bank</strong>.
+                    <strong>Prosedur & Durasi Refund:</strong> Permohonan dikirimkan ke email resmi <strong>support@opilines.com</strong> dengan melampirkan Nomor Order (contoh: <code>OPL-PRO-...</code>) dan bukti bayar. Dana akan dikembalikan ke metode pembayaran awal atau rekening resmi perusahaan pemesan dalam waktu <strong>5–14 hari kerja bank</strong>.
                   </span>
                 </li>
               </ul>
@@ -288,7 +288,7 @@ export default function TermsAndConditionsPage() {
                 <div className="flex items-start gap-2.5">
                   <Mail className="h-4 w-4 text-[#007ACC] shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-medium text-[#0F172A] block">billing@opilines.id</span>
+                    <span className="font-medium text-[#0F172A] block">support@opilines.com</span>
                     <span className="text-[12px] text-[#64748B]">Dukungan Transaksi & Refund (Senin–Jumat, 09.00–18.00 WIB)</span>
                   </div>
                 </div>

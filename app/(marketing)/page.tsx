@@ -19,54 +19,85 @@ import {
 
 export default function MarketingHomePage() {
   return (
-    <div className="space-y-24 md:space-y-32 pb-24">
+    <div className="pb-24">
       {/* 1. Hero Section */}
-      <section className="relative pt-12 md:pt-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto space-y-6">
+      <section className="relative min-h-[calc(100vh-4rem)] min-h-[calc(100dvh-4rem)] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 overflow-hidden">
+        {/* Smooth Gray Ambient Grid Background */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 z-0 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_70%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_70%)]"
+        >
+          <svg
+            className="h-full w-full"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <pattern
+                id="hero-ambient-grid"
+                width="36"
+                height="36"
+                patternUnits="userSpaceOnUse"
+                x="50%"
+                y="50%"
+              >
+                <path
+                  d="M.5 36V.5H36"
+                  fill="none"
+                  stroke="#CBD5E1"
+                  strokeWidth="1"
+                />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" strokeWidth="0" fill="url(#hero-ambient-grid)" />
+          </svg>
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-7xl w-full flex flex-col items-center justify-center">
+          <div className="text-center max-w-3xl mx-auto space-y-4 sm:space-y-6 flex flex-col items-center justify-center">
             {/* Kicker Badge */}
             <div className="inline-flex items-center gap-2 rounded-full border border-[#D0E8F8] bg-[#EBF5FC] px-3.5 py-1.5 text-[12px] font-semibold text-[#007ACC]">
               <span className="h-1.5 w-1.5 rounded-full bg-[#007ACC]" />
-              <span>Platform Operasional Lapangan B2B</span>
+              <span>Platform Manajemen Pekerja Lapangan</span>
             </div>
 
             {/* Headline */}
-            <h1 className="font-heading text-[32px] sm:text-[44px] lg:text-[52px] font-bold text-[#0F172A] tracking-[-0.025em] leading-[1.16]">
-              Kelola Operasional Layanan Lapangan dalam{' '}
-              <span className="text-[#007ACC]">Satu Platform Terintegrasi.</span>
+            <h1 className="font-heading text-[28px] sm:text-[38px] md:text-[44px] lg:text-[52px] font-bold text-[#0F172A] tracking-[-0.025em] leading-[1.18] sm:leading-[1.16]">
+              Kelola Operasional Lapangan{' '}
+              <span className="text-[#007ACC]">Satu Platform Terintegrasi</span>
             </h1>
 
             {/* Sub-headline */}
-            <p className="text-[15px] sm:text-[17px] text-[#475569] leading-relaxed max-w-2xl mx-auto">
-              Opilines menyederhanakan penjadwalan teknisi, pelaksanaan pekerjaan lapangan, verifikasi dokumen, hingga pemantauan performa layanan secara real-time.
+            <p className="text-[14px] sm:text-[16px] md:text-[17px] text-[#475569] leading-relaxed max-w-2xl mx-auto">
+             Opilines mengoptimalkan penjadwalan teknisi, verifikasi dokumen, dan pemantauan pekerjaan secara real-time.
             </p>
 
             {/* Primary CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-2">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3.5 pt-1 sm:pt-2 w-full sm:w-auto">
               <Link
                 href="/register"
-                className="w-full sm:w-auto h-11 px-6 rounded-[8px] bg-[#007ACC] hover:bg-[#0062A3] active:bg-[#004F82] text-white font-medium text-[14px] flex items-center justify-center gap-2 shadow-[0_1px_3px_0_rgba(0,122,204,0.3)] transition-all cursor-pointer"
+                className="w-full sm:w-auto max-w-xs sm:max-w-none h-11 px-6 rounded-[8px] bg-[#007ACC] hover:bg-[#0062A3] active:bg-[#004F82] text-white font-medium text-[14px] flex items-center justify-center gap-2 shadow-[0_1px_3px_0_rgba(0,122,204,0.3)] transition-all cursor-pointer"
               >
                 <span>Coba Gratis Sekarang</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/demo"
-                className="w-full sm:w-auto h-11 px-6 rounded-[8px] border border-[#CBD5E1] bg-[#FFFFFF] hover:bg-[#F8FAFC] text-[#0F172A] font-medium text-[14px] flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                className="w-full sm:w-auto max-w-xs sm:max-w-none h-11 px-6 rounded-[8px] border border-[#CBD5E1] bg-[#FFFFFF] hover:bg-[#F8FAFC] text-[#0F172A] font-medium text-[14px] flex items-center justify-center gap-2 transition-colors cursor-pointer"
               >
                 <span>Jadwalkan Demo</span>
               </Link>
             </div>
 
             {/* Reassurance */}
-            <p className="text-[12.5px] text-[#64748B]">
+            <p className="text-[12px] sm:text-[12.5px] text-[#64748B]">
               Uji coba gratis 14 hari • Tanpa kartu kredit • Onboarding terpandu
             </p>
           </div>
         </div>
       </section>
 
-      {/* 2. Kami Menyesuaikan dengan Perusahaan Jasa Teknisi */}
+      <div className="space-y-24 md:space-y-32 pt-12 md:pt-16">
+        {/* 2. Kami Menyesuaikan dengan Perusahaan Jasa Teknisi */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="space-y-8">
           <div className="text-center max-w-2xl mx-auto space-y-2">
@@ -415,6 +446,7 @@ export default function MarketingHomePage() {
           </p>
         </div>
       </section>
+      </div>
     </div>
   )
 }

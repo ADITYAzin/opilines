@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
@@ -15,10 +15,29 @@ const navLinks = [
 
 export function MarketingNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
   const pathname = usePathname()
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 16)
+    }
+
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const isSolid = isScrolled || mobileMenuOpen
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-[#E2E8F0] bg-[#FFFFFF]/90 backdrop-blur-md transition-all">
+    <header
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        isSolid
+          ? 'bg-[#FFFFFF]/95 backdrop-blur-md border-b border-[#E2E8F0] shadow-xs'
+          : 'bg-transparent border-b border-transparent'
+      }`}
+    >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
@@ -33,7 +52,7 @@ export function MarketingNavbar() {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => {
             const isActive = pathname === link.href
             return (
@@ -53,7 +72,7 @@ export function MarketingNavbar() {
         </nav>
 
         {/* Desktop CTA Buttons */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-4">
           <Link
             href="/login"
             className="text-[13.5px] font-medium text-[#475569] hover:text-[#0F172A] px-3 py-2 transition-colors"
@@ -73,7 +92,7 @@ export function MarketingNavbar() {
         <button
           type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden flex h-9 w-9 items-center justify-center rounded-[8px] border border-[#E2E8F0] text-[#475569] hover:bg-[#F8FAFC]"
+          className="lg:hidden flex h-9 w-9 items-center justify-center rounded-[8px] border border-[#E2E8F0] text-[#475569] hover:bg-[#F8FAFC]"
           aria-label="Toggle Menu"
         >
           {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -82,7 +101,7 @@ export function MarketingNavbar() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-[#E2E8F0] bg-[#FFFFFF] px-4 py-4 space-y-4">
+        <div className="lg:hidden border-b border-[#E2E8F0] bg-[#FFFFFF] px-4 py-4 space-y-4">
           <nav className="flex flex-col space-y-2">
             {navLinks.map((link) => {
               const isActive = pathname === link.href
