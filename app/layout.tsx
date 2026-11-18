@@ -35,6 +35,9 @@ export const metadata: Metadata = {
     statusBarStyle: "default",
     title: "Opilines",
   },
+  verification: {
+    google: "8ZYaS8a77ic0d2KJZcJ-i2CIeCWim5JwUd31y09yTxo",
+  },
   icons: {
     icon: [
       { url: "/icon", sizes: "192x192", type: "image/png" },
